@@ -1,95 +1,182 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="نَبْرة منصة ممتعة للأطفال المبتدئين لتعلّم الكلمات العربية والإنجليزية بالصور والأصوات والتدرّب على النطق.">
-<title>نَبْرة | نتعلّمها، نسمعها، ونحكيها!</title>
-<style>
-:root{--ink:#25324a;--purple:#7657d9;--purple2:#eee9ff;--pink:#ff91b9;--yellow:#ffda6b;--mint:#b4efdc;--blue:#b4e3ff;--cream:#fffaf2;--white:#fff;--muted:#697589}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer;border:0}
-.container{width:min(1160px,92%);margin:auto}header{position:sticky;top:0;z-index:10;background:#fffaf2ed;backdrop-filter:blur(12px);border-bottom:1px solid #eee7dc}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}.logo{display:flex;align-items:center;gap:9px;font-size:1.55rem;font-weight:900;color:var(--purple)}.logo-mark{display:grid;place-items:center;background:var(--yellow);width:42px;height:42px;border-radius:15px}
-.navlinks{display:flex;gap:20px;font-size:.93rem;font-weight:800}.navlinks a:hover{color:var(--purple)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 19px;border-radius:16px;font-weight:900;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:var(--purple);color:white;box-shadow:0 6px 0 #5940b5}.light{background:white;border:2px solid #eee6ff;color:var(--purple)}
-.hero{padding:58px 0 50px;background:radial-gradient(circle at 10% 10%,#ffe4ee 0 9%,transparent 10%),radial-gradient(circle at 90% 18%,#e4f7ef 0 8%,transparent 9%)}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center}.pill{display:inline-block;background:white;border:1px solid #eee2ff;color:var(--purple);padding:6px 13px;border-radius:99px;font-weight:900;font-size:.9rem}h1{font-size:clamp(2.3rem,5vw,4.1rem);line-height:1.2;margin:18px 0}h1 span{color:var(--purple)}.hero p{font-size:1.12rem;max-width:570px;color:#596579}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}.mini-note{font-size:.88rem;color:var(--muted)}.hero-art{position:relative;min-height:330px;display:grid;place-items:center}.blob{width:min(350px,90%);aspect-ratio:1;background:var(--mint);border-radius:42% 58% 54% 46% / 43% 43% 57% 57%;display:grid;place-items:center;transform:rotate(-4deg)}.mascot{font-size:clamp(7rem,17vw,11rem);filter:drop-shadow(0 12px 3px #719c8c40);transform:rotate(4deg)}.float{position:absolute;background:white;border-radius:20px;padding:10px 14px;box-shadow:0 10px 28px #27334b14;font-weight:900}.f1{top:20px;right:0;transform:rotate(5deg)}.f2{bottom:30px;left:0;transform:rotate(-5deg)}.f3{top:42%;right:0;background:var(--yellow);font-size:1.4rem}
-section{padding:64px 0}.section-head{text-align:center;max-width:700px;margin:0 auto 28px}.eyebrow{color:var(--purple);font-weight:900}.section-head h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.25;margin:8px 0}.section-head p{color:var(--muted);margin:0}
-.category-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:0 auto 24px}.tab{background:#fff;border:1px solid #e9e2f5;border-radius:99px;padding:9px 15px;color:#596579;font-weight:900}.tab.active,.tab:hover{background:var(--purple);color:#fff;border-color:var(--purple)}
-.learn-panel{background:#fff;border:1px solid #f0e9e1;border-radius:28px;padding:22px;box-shadow:0 8px 0 #f3ede5}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}.panel-heading h3{margin:0;font-size:1.4rem}.panel-heading p{margin:2px 0;color:var(--muted);font-size:.9rem}.controls{display:flex;gap:9px;flex-wrap:wrap}.search{border:1px solid #e5deef;border-radius:13px;padding:10px 13px;min-width:180px;outline-color:var(--purple)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.word-card{border:1px solid #f0edf6;background:#fffdfb;border-radius:20px;padding:14px;text-align:center;transition:.2s;min-width:0}.word-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px #42316c12}.word-emoji{display:grid;place-items:center;margin:auto auto 7px;width:70px;height:70px;border-radius:22px;background:var(--tile,#eee9ff);font-size:2.7rem}.word-ar{font-weight:900;font-size:1.12rem}.word-en{color:var(--muted);font-size:.93rem}.word-actions{display:flex;gap:7px;justify-content:center;margin-top:10px}.small-sound{background:var(--purple2);color:var(--purple);border-radius:12px;padding:7px 10px;font-weight:900}.small-sound:hover{background:var(--purple);color:white}.empty{padding:30px;text-align:center;color:var(--muted);display:none}
-.practice{background:var(--purple2)}.practice-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center}.practice-copy h2{font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.25;margin:10px 0}.practice-copy p{color:#5f6380}.bot-card{background:white;border-radius:28px;padding:23px;box-shadow:0 14px 0 #dcd2ff}.bot-head{display:flex;align-items:center;gap:12px;padding-bottom:15px;border-bottom:1px solid #f0edf8}.bot-icon{width:54px;height:54px;border-radius:18px;background:var(--mint);display:grid;place-items:center;font-size:1.9rem}.bot-head strong{display:block}.online{color:#319875;font-size:.85rem}.practice-select{margin:16px 0 0;width:100%;border:1px solid #e5deef;border-radius:13px;padding:10px;background:white}.target{text-align:center;padding:16px 0 12px}.target .big{font-size:3.5rem;line-height:1.2}.target p{margin:4px 0;color:var(--muted)}.bot-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}.feedback{min-height:46px;text-align:center;margin:14px 0 0;font-weight:900;color:var(--purple)}.notice{font-size:.8rem;color:#777f91;background:#faf8ff;padding:10px 12px;border-radius:12px;margin-top:12px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{padding:22px;border-radius:22px;background:white;border:1px solid #f0e9e1}.num{width:42px;height:42px;border-radius:14px;background:var(--yellow);display:grid;place-items:center;font-weight:900}.step h3{margin:12px 0 5px}.step p{margin:0;color:var(--muted)}.cta{padding:0 0 66px}.cta-box{background:var(--ink);color:white;border-radius:30px;padding:36px;display:flex;align-items:center;justify-content:space-between;gap:22px}.cta-box h2{font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 8px;line-height:1.25}.cta-box p{color:#d7dbea;margin:0}footer{border-top:1px solid #eee7dc;padding:22px 0;color:#778094;font-size:.9rem}.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media(max-width:800px){.navlinks{display:none}.hero-grid,.practice-grid{grid-template-columns:1fr}.hero{padding-top:38px}.hero-art{min-height:270px}.grid{grid-template-columns:repeat(3,1fr)}.steps{grid-template-columns:1fr}.cta-box{padding:27px;flex-wrap:wrap}}
-@media(max-width:560px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.learn-panel{padding:13px}.word-card{padding:11px 7px}.word-emoji{width:60px;height:60px;font-size:2.25rem}.panel-heading{align-items:flex-start}.controls{width:100%}.search{width:100%}.hero-actions .btn{width:100%}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نَبْرة - منصة تعليمية للأطفال</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #fdfbf7; color: #333; line-height: 1.6; }
+    header { background: #fff; padding: 1rem 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .logo { font-size: 1.8rem; font-weight: bold; color: #ff6b6b; text-decoration: none; }
+    nav a { margin: 0 10px; text-decoration: none; color: #555; font-weight: 600; }
+    .btn-start { background: #ff6b6b; color: white; padding: 0.5rem 1.2rem; border-radius: 20px; text-decoration: none; font-weight: bold; }
+    
+    section { padding: 3rem 1rem; max-width: 1100px; margin: 0 auto; text-align: center; }
+    .hero { background: #fff5eb; border-radius: 20px; padding: 3rem 2rem; margin-top: 1rem; }
+    .hero h1 { font-size: 2.5rem; color: #2d3436; margin-bottom: 1rem; }
+    .hero h1 span { color: #ff6b6b; }
+    
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .card { background: white; border-radius: 15px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 2px solid #f0f0f0; }
+    .card .icon { font-size: 3.5rem; margin-bottom: 0.5rem; }
+    .card h3 { font-size: 1.3rem; margin-bottom: 0.2rem; color: #2d3436; }
+    .card p { font-weight: bold; color: #6c5ce7; margin-bottom: 1rem; }
+    .audio-btns { display: flex; justify-content: center; gap: 10px; }
+    .btn-audio { padding: 0.4rem 0.8rem; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+    .btn-ar { background: #ffeaa7; color: #d63031; }
+    .btn-en { background: #74b9ff; color: #0984e3; }
+    .btn-audio:hover { opacity: 0.9; transform: scale(1.05); }
+
+    .practice-box { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 500px; margin: 2rem auto; }
+    select { width: 100%; padding: 0.8rem; margin: 1rem 0; border-radius: 10px; border: 2px solid #dfe6e9; font-size: 1rem; }
+    .btn-listen { background: #00b894; color: white; border: none; padding: 0.8rem 2rem; border-radius: 30px; font-size: 1.2rem; cursor: pointer; font-weight: bold; }
+    .feedback-box { margin-top: 1.5rem; padding: 1rem; border-radius: 10px; background: #f8f9fa; font-size: 1.1rem; min-height: 60px; }
+
+    footer { background: #2d3436; color: white; text-align: center; padding: 1.5rem; margin-top: 3rem; }
+  </style>
 </head>
 <body>
-<header><div class="container nav">
-<a class="logo" href="#home"><span class="logo-mark">🔊</span> نَبْرة</a>
-<nav class="navlinks"><a href="#learn">عالم الكلمات</a><a href="#practice">مساعد النطق</a><a href="#how">كيف نبدأ؟</a></nav>
-<a class="btn primary" href="#learn">يلا نبدأ! ✨</a>
-</div></header>
+
+<header>
+  <div class="nav-container">
+    <a href="#home" class="logo">🔊 نَبْرة</a>
+    <nav>
+      <a href="#learn">عالم الكلمات</a>
+      <a href="#practice">مساعد النطق</a>
+    </nav>
+    <a href="#learn" class="btn-start">يلا نبدأ! ✨</a>
+  </div>
+</header>
+
 <main>
-<section class="hero" id="home"><div class="container hero-grid"><div>
-<span class="pill">🌟 رحلة صغيرة… وكلمات كبيرة!</span>
-<h1>نتعلّمها، <span>نسمعها،</span><br>ونحكيها مع نَبْرة!</h1>
-<p>منصة ممتعة للأطفال المبتدئين ليتعلّموا كلمات جديدة بالعربي والإنجليزي من خلال الصور والأصوات واللعب، ويتدرّبوا على نطقها خطوة خطوة.</p>
-<div class="hero-actions"><a class="btn primary" href="#learn">🎨 اكتشف الكلمات</a><a class="btn light" href="#practice">🎤 جرّب صوتك</a></div>
-<div class="mini-note">💛 تعلّم على مهلك، جرّب مرة ثانية، وكل محاولة بتقرّبك من النجاح!</div>
-</div><div class="hero-art"><div class="blob"><div class="mascot">🦊</div></div><div class="float f1">Hello! 👋</div><div class="float f2">أحسنت! ⭐</div><div class="float f3">♪</div></div></div></section>
+  <section class="hero" id="home">
+    <span>🌟 رحلة صغيرة… وكلمات كبيرة!</span>
+    <h1>نتعلّمها، <span>نسمعها،</span> ونحكيها مع نَبْرة!</h1>
+    <p>منصة ممتعة للأطفال المبتدئين ليتعلّموا كلمات جديدة بالعربي والإنجليزي ويتدرّبوا على نطقها خطوة خطوة.</p>
+  </section>
 
-<section id="learn"><div class="container">
-<div class="section-head"><span class="eyebrow">🎧 اسمع واكتشف</span><h2>كل الكلمات بانتظارك!</h2><p>اختار عالمك، وتصفّح الكلمات، واضغط على الصوت العربي أو الإنجليزي. استخدم البحث إذا كنت تدور على كلمة معيّنة.</p></div>
-<div class="category-tabs" id="tabs"></div>
-<div class="learn-panel"><div class="panel-heading"><div><h3 id="categoryTitle">🐾 عالم الحيوانات</h3><p id="categoryDescription">اسمع اسم كل حيوان باللغتين.</p></div><div class="controls"><input class="search" id="search" type="search" placeholder="🔎 ابحث عن كلمة..." aria-label="ابحث عن كلمة"></div></div>
-<div class="grid" id="wordGrid"></div><div class="empty" id="empty">ما لقينا كلمة بهذا الاسم. جرّب كلمة ثانية 😊</div></div>
-</div></section>
+  <section id="learn">
+    <h2>🐾 عالم الكلمات والتعلم</h2>
+    <p>اضغط على الصوت للتعلم بالعربي أو الإنجليزي</p>
+    
+    <div class="cards-grid">
+      <div class="card">
+        <div class="icon">🐱</div>
+        <h3>قطة</h3>
+        <p>Cat</p>
+        <div class="audio-btns">
+          <button class="btn-audio btn-ar" onclick="speak('قطة', 'ar-SA')">🔊 عربي</button>
+          <button class="btn-audio btn-en" onclick="speak('Cat', 'en-US')">🔊 English</button>
+        </div>
+      </div>
 
-<section class="practice" id="practice"><div class="container practice-grid">
-<div class="practice-copy"><span class="eyebrow">🤖 صديقك نَبْرة</span><h2>دورك تحكي!<br>نَبْرة بتسمعلك 🎤</h2><p>اختار كلمة من القائمة، اسمعها، وبعدها جرّب تنطقها بنفسك. نَبْرة بتشجّعك على المحاولة وبتعرض الكلمة اللي تعرّف عليها المتصفح.</p><ul><li>اسمع النطق أولًا.</li><li>جرّب تنطق الكلمة الإنجليزية.</li><li>إذا ما ضبطت من أول مرة، عادي! جرّب من جديد.</li></ul></div>
-<div class="bot-card"><div class="bot-head"><div class="bot-icon">🦊</div><div><strong>مساعد نَبْرة الصوتي</strong><span class="online">● تجربة أولية داخل المتصفح</span></div></div>
-<select class="practice-select" id="practiceWord" aria-label="اختار كلمة للتدرب"></select>
-<div class="target"><div class="big" id="targetEmoji">🐱</div><strong id="targetArabic">قطة</strong><p id="targetEnglish">Cat</p></div>
-<div class="bot-actions"><button class="btn light" onclick="speakCurrent()">🔊 اسمع الكلمة</button><button class="btn primary" id="listenBtn" onclick="startRecognition()">🎤 جرّب نطقي</button></div>
-<div class="feedback" id="feedback" role="status" aria-live="polite">جاهز؟ خلّينا نجرّب سوا! 🌟</div>
-<div class="notice">ملاحظة للأهل: ميزة التعرّف على الصوت تعتمد على دعم المتصفح والإنترنت والميكروفون، والمطابقة هنا بسيطة وليست تقييمًا دقيقًا لمخارج الحروف. لا تحفظ الصفحة التسجيلات الصوتية.</div>
-</div></div></section>
+      <div class="card">
+        <div class="icon">🐶</div>
+        <h3>كلب</h3>
+        <p>Dog</p>
+        <div class="audio-btns">
+          <button class="btn-audio btn-ar" onclick="speak('كلب', 'ar-SA')">🔊 عربي</button>
+          <button class="btn-audio btn-en" onclick="speak('Dog', 'en-US')">🔊 English</button>
+        </div>
+      </div>
 
-<section id="how"><div class="container"><div class="section-head"><span class="eyebrow">💫 سهلة وبسيطة</span><h2>كيف نبدأ رحلة نَبْرة؟</h2><p>ثلاث خطوات صغيرة لتعلّم ممتع.</p></div><div class="steps">
-<article class="step"><div class="num">١</div><h3>اختار عالمك</h3><p>حيوانات، ألوان، حروف، أو كلمات من حياتك اليومية.</p></article>
-<article class="step"><div class="num">٢</div><h3>اسمع وكرّر</h3><p>اسمع الكلمة بالعربي أو الإنجليزي وجرّب تقولها بصوتك.</p></article>
-<article class="step"><div class="num">٣</div><h3>احتفل بمحاولتك</h3><p>كل مرة بتتدرّب فيها هي خطوة جديدة. أحسنت يا بطل!</p></article>
-</div></div></section>
-<div class="container cta"><div class="cta-box"><div><h2>كل كلمة جديدة… إنجاز صغير! 🌟</h2><p>مع نَبْرة، التعلّم يبدأ بالفضول ويكبر بالممارسة.</p></div><a href="#learn" class="btn" style="background:var(--yellow);color:var(--ink)">يلا نتعلّم! 🚀</a><span style="font-size:4rem">📚</span></div></div>
+      <div class="card">
+        <div class="icon">🍎</div>
+        <h3>تفاحة</h3>
+        <p>Apple</p>
+        <div class="audio-btns">
+          <button class="btn-audio btn-ar" onclick="speak('تفاحة', 'ar-SA')">🔊 عربي</button>
+          <button class="btn-audio btn-en" onclick="speak('Apple', 'en-US')">🔊 English</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🔴</div>
+        <h3>أحمر</h3>
+        <p>Red</p>
+        <div class="audio-btns">
+          <button class="btn-audio btn-ar" onclick="speak('أحمر', 'ar-SA')">🔊 عربي</button>
+          <button class="btn-audio btn-en" onclick="speak('Red', 'en-US')">🔊 English</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="practice">
+    <h2>🤖 مساعد نَبْرة الصوتي (دورك تحكي!)</h2>
+    <p>اختار الكلمة، اضغط على اسمعني، وقول الكلمة بالإنجليزي!</p>
+
+    <div class="practice-box">
+      <select id="wordSelect">
+        <option value="cat">Cat (قطة)</option>
+        <option value="dog">Dog (كلب)</option>
+        <option value="apple">Apple (تفاحة)</option>
+        <option value="red">Red (أحمر)</option>
+      </select>
+
+      <button class="btn-listen" id="listenBtn">🎤 اسمعني</button>
+
+      <div class="feedback-box" id="feedback">
+        جاهز؟ اختار الكلمة واضغط اسمعني سوا! 🌟
+      </div>
+    </div>
+  </section>
 </main>
-<footer><div class="container footer-inner"><span><strong>نَبْرة 🔊</strong> — نتعلّمها، نسمعها، ونحكيها!</span><span>نموذج تجريبي تعليمي للأطفال • © 2026</span></div></footer>
+
+<footer>
+  <p>نَبْرة 🔊 — نتعلّمها، نسمعها، ونحكيها! • نموذج تجريبي تعليمي للأطفال</p>
+</footer>
 
 <script>
-const categories = [
-{ id:'animals', name:'عالم الحيوانات', icon:'🐾', desc:'حيوانات من حولنا ومن بعيد.', words:[
-['قطة','Cat','🐱'],['كلب','Dog','🐶'],['أسد','Lion','🦁'],['فيل','Elephant','🐘'],['زرافة','Giraffe','🦒'],['قرد','Monkey','🐒'],['أرنب','Rabbit','🐰'],['دب','Bear','🐻'],['ثعلب','Fox','🦊'],['ذئب','Wolf','🐺'],['بقرة','Cow','🐮'],['حصان','Horse','🐴'],['خروف','Sheep','🐑'],['ماعز','Goat','🐐'],['دجاجة','Chicken','🐔'],['بطة','Duck','🦆'],['سمكة','Fish','🐟'],['دلفين','Dolphin','🐬'],['حوت','Whale','🐳'],['سلحفاة','Turtle','🐢'],['ضفدع','Frog','🐸'],['ثعبان','Snake','🐍'],['فراشة','Butterfly','🦋'],['نحلة','Bee','🐝'],['نملة','Ant','🐜'],['عصفور','Bird','🐦'],['بومة','Owl','🦉'],['بطريق','Penguin','🐧'],['جمل','Camel','🐪'],['حمار','Donkey','🫏'],['ديك','Rooster','🐓'],['ديك رومي','Turkey','🦃'],['كنغر','Kangaroo','🦘'],['باندا','Panda','🐼'],['كوالا','Koala','🐨'],['تمساح','Crocodile','🐊'],['نمر','Tiger','🐯'],['حمار وحشي','Zebra','🦓'],['غزال','Deer','🦌'],['قنفذ','Hedgehog','🦔'],['خفاش','Bat','🦇'],['ببغاء','Parrot','🦜'],['طاووس','Peacock','🦚'],['ديك رومي','Turkey','🦃'],['دجاجة','Hen','🐔']]},
-{ id:'colors',name:'عالم الألوان',icon:'🌈',desc:'تعرّف على الألوان من حولك.',words:[['أحمر','Red','🟥'],['أزرق','Blue','🟦'],['أصفر','Yellow','🟨'],['أخضر','Green','🟩'],['برتقالي','Orange','🟠'],['بنفسجي','Purple','🟣'],['وردي','Pink','🩷'],['أسود','Black','⬛'],['أبيض','White','⬜'],['بني','Brown','🟤'],['رمادي','Gray','🩶'],['ذهبي','Gold','🌟'],['فضي','Silver','✨'],['سماوي','Light blue','🩵'],['بيج','Beige','🤎'],['كحلي','Navy blue','🔵']]},
-{ id:'body',name:'أعضاء الجسم',icon:'👀',desc:'أجزاء الجسم التي نستخدمها كل يوم.',words:[['رأس','Head','🙂'],['شعر','Hair','💇'],['عين','Eye','👁️'],['أذن','Ear','👂'],['أنف','Nose','👃'],['فم','Mouth','👄'],['أسنان','Teeth','😁'],['لسان','Tongue','👅'],['وجه','Face','😊'],['رقبة','Neck','🧣'],['كتف','Shoulder','💪'],['ذراع','Arm','💪'],['يد','Hand','✋'],['إصبع','Finger','☝️'],['إبهام','Thumb','👍'],['صدر','Chest','🫁'],['بطن','Belly','🧍'],['ظهر','Back','🧍'],['رجل','Leg','🦵'],['ركبة','Knee','🦵'],['قدم','Foot','🦶'],['أصابع القدم','Toes','🦶'],['قلب','Heart','❤️'],['عظام','Bones','🦴']]},
-{ id:'letters',name:'الحروف',icon:'🔤',desc:'الحروف العربية والإنجليزية من البداية.',words:[
-['ألف','A','🔤'],['باء','B','🔤'],['تاء','C','🔤'],['ثاء','D','🔤'],['جيم','E','🔤'],['حاء','F','🔤'],['خاء','G','🔤'],['دال','H','🔤'],['ذال','I','🔤'],['راء','J','🔤'],['زاي','K','🔤'],['سين','L','🔤'],['شين','M','🔤'],['صاد','N','🔤'],['ضاد','O','🔤'],['طاء','P','🔤'],['ظاء','Q','🔤'],['عين','R','🔤'],['غين','S','🔤'],['فاء','T','🔤'],['قاف','U','🔤'],['كاف','V','🔤'],['لام','W','🔤'],['ميم','X','🔤'],['نون','Y','🔤'],['هاء','Z','🔤'],['واو','Waw','🔤'],['ياء','Yaa','🔤'],['ألف','Alif','🔤'],['باء','Baa','🔤'],['تاء','Taa','🔤'],['ثاء','Thaa','🔤'],['جيم','Jeem','🔤'],['حاء','Haa','🔤'],['خاء','Khaa','🔤'],['دال','Daal','🔤'],['ذال','Dhaal','🔤'],['راء','Raa','🔤'],['زاي','Zaay','🔤'],['سين','Seen','🔤'],['شين','Sheen','🔤'],['صاد','Saad','🔤'],['ضاد','Daad','🔤'],['طاء','Taa','🔤'],['ظاء','Zhaa','🔤'],['عين','Ayn','🔤'],['غين','Ghayn','🔤'],['فاء','Faa','🔤'],['قاف','Qaaf','🔤'],['كاف','Kaaf','🔤'],['لام','Laam','🔤'],['ميم','Meem','🔤'],['نون','Noon','🔤'],['هاء','Haa','🔤'],['واو','Waaw','🔤'],['ياء','Yaa','🔤']]},
-{ id:'family',name:'أفراد العائلة',icon:'👨‍👩‍👧',desc:'كلمات عن الأشخاص الذين نحبهم.',words:[['أم','Mother','👩'],['أب','Father','👨'],['أخت','Sister','👧'],['أخ','Brother','👦'],['أخت صغيرة','Baby sister','👶'],['أخ صغير','Baby brother','👶'],['جدة','Grandmother','👵'],['جد','Grandfather','👴'],['عمة','Aunt','👩'],['عم','Uncle','👨'],['خالة','Aunt','👩'],['خال','Uncle','👨'],['ابنة','Daughter','👧'],['ابن','Son','👦'],['طفل','Child','🧒'],['عائلة','Family','👨‍👩‍👧‍👦'],['والدان','Parents','👨‍👩‍👧'],['توأم','Twins','👧👧']]},
-{ id:'numbers',name:'الأرقام',icon:'🔢',desc:'نعدّ من واحد إلى عشرين وأكثر.',words:[['واحد','One','1️⃣'],['اثنان','Two','2️⃣'],['ثلاثة','Three','3️⃣'],['أربعة','Four','4️⃣'],['خمسة','Five','5️⃣'],['ستة','Six','6️⃣'],['سبعة','Seven','7️⃣'],['ثمانية','Eight','8️⃣'],['تسعة','Nine','9️⃣'],['عشرة','Ten','🔟'],['أحد عشر','Eleven','🔢'],['اثنا عشر','Twelve','🔢'],['ثلاثة عشر','Thirteen','🔢'],['أربعة عشر','Fourteen','🔢'],['خمسة عشر','Fifteen','🔢'],['ستة عشر','Sixteen','🔢'],['سبعة عشر','Seventeen','🔢'],['ثمانية عشر','Eighteen','🔢'],['تسعة عشر','Nineteen','🔢'],['عشرون','Twenty','🔢']]},
-{ id:'food',name:'الطعام والفواكه',icon:'🍎',desc:'أطعمة وفواكه نعرفها.',words:[['تفاحة','Apple','🍎'],['موز','Banana','🍌'],['برتقال','Orange','🍊'],['عنب','Grapes','🍇'],['فراولة','Strawberry','🍓'],['بطيخ','Watermelon','🍉'],['أناناس','Pineapple','🍍'],['خوخ','Peach','🍑'],['كمثرى','Pear','🍐'],['ليمون','Lemon','🍋'],['كرز','Cherries','🍒'],['مانجو','Mango','🥭'],['حليب','Milk','🥛'],['خبز','Bread','🍞'],['جبنة','Cheese','🧀'],['بيض','Egg','🥚'],['أرز','Rice','🍚'],['بيتزا','Pizza','🍕'],['ساندويش','Sandwich','🥪'],['كعكة','Cake','🎂'],['بسكويت','Cookie','🍪'],['آيس كريم','Ice cream','🍦'],['ماء','Water','💧'],['عصير','Juice','🧃']]},
-{ id:'things',name:'أشياء حولنا',icon:'🎒',desc:'أشياء نستخدمها في البيت والمدرسة.',words:[['كتاب','Book','📘'],['قلم','Pen','🖊️'],['حقيبة','Bag','🎒'],['كرسي','Chair','🪑'],['طاولة','Table','🪵'],['باب','Door','🚪'],['نافذة','Window','🪟'],['ساعة','Clock','🕒'],['هاتف','Phone','📱'],['كرة','Ball','⚽'],['سيارة','Car','🚗'],['حافلة','Bus','🚌'],['دراجة','Bicycle','🚲'],['بيت','House','🏠'],['سرير','Bed','🛏️'],['مصباح','Lamp','💡'],['كوب','Cup','☕'],['ملعقة','Spoon','🥄'],['طبق','Plate','🍽️'],['مفتاح','Key','🔑'],['حذاء','Shoe','👟'],['قميص','Shirt','👕'],['قبعة','Hat','🧢'],['لعبة','Toy','🧸']]},
-{ id:'feelings',name:'المشاعر والصفات',icon:'😊',desc:'كلمات بسيطة لوصف شعورنا.',words:[['سعيد','Happy','😄'],['حزين','Sad','😢'],['غاضب','Angry','😠'],['خائف','Scared','😨'],['متعب','Tired','😴'],['نعسان','Sleepy','🥱'],['متحمس','Excited','🤩'],['هادئ','Calm','😌'],['جائع','Hungry','🤤'],['عطشان','Thirsty','🥤'],['كبير','Big','🐘'],['صغير','Small','🐜'],['سريع','Fast','🏃'],['بطيء','Slow','🐢'],['حار','Hot','🔥'],['بارد','Cold','🧊'],['نظيف','Clean','✨'],['متسخ','Dirty','🫧']]},
-{ id:'nature',name:'الطبيعة والطقس',icon:'🌦️',desc:'الشمس والسماء والأشياء في الطبيعة.',words:[['شمس','Sun','☀️'],['قمر','Moon','🌙'],['نجمة','Star','⭐'],['سماء','Sky','🌌'],['سحابة','Cloud','☁️'],['مطر','Rain','🌧️'],['ثلج','Snow','❄️'],['ريح','Wind','💨'],['بحر','Sea','🌊'],['نهر','River','🏞️'],['جبل','Mountain','⛰️'],['شجرة','Tree','🌳'],['زهرة','Flower','🌸'],['عشب','Grass','🌱'],['ورقة','Leaf','🍃'],['نار','Fire','🔥'],['أرض','Earth','🌍'],['قوس قزح','Rainbow','🌈']]},
-{ id:'actions',name:'أفعال يومية',icon:'🏃',desc:'أفعال نستخدمها كل يوم.',words:[['يأكل','Eat','🍽️'],['يشرب','Drink','🥤'],['ينام','Sleep','😴'],['يقرأ','Read','📖'],['يكتب','Write','✍️'],['يلعب','Play','🧸'],['يمشي','Walk','🚶'],['يجري','Run','🏃'],['يقفز','Jump','🤸'],['يجلس','Sit','🪑'],['يقف','Stand','🧍'],['يغني','Sing','🎤'],['يرقص','Dance','💃'],['يرسم','Draw','🎨'],['يسمع','Listen','👂'],['يتكلم','Speak','💬'],['يفتح','Open','🚪'],['يغلق','Close','🔒']]},
-{ id:'greetings',name:'التحية والكلمات اليومية',icon:'👋',desc:'كلمات سهلة نستخدمها في الحديث.',words:[['مرحبًا','Hello','👋'],['وداعًا','Goodbye','👋'],['من فضلك','Please','🙏'],['شكرًا','Thank you','💛'],['عفوًا','You are welcome','😊'],['نعم','Yes','✅'],['لا','No','❌'],['صباح الخير','Good morning','🌞'],['مساء الخير','Good evening','🌙'],['كيف حالك؟','How are you?','🙂'],['أنا بخير','I am fine','😊'],['اسمي','My name is','🏷️'],['آسف','Sorry','💗'],['مساعدة','Help','🆘'],['أحبك','I love you','❤️']]}
-];
-let activeCategory='animals';
-let activePractice={ar:'قطة',en:'Cat',emoji:'🐱'};
-const palette=['#fff0b9','#e8e0ff','#d9f7ed','#ffe0eb','#dff1ff','#ffe8d4','#f7e5ff','#e3f6ff'];
-function renderTabs(){document.getElementById('tabs').innerHTML=categories.map(c=>`<button class="tab ${c.id===activeCategory?'active':''}" onclick="selectCategory('${c.id}')">${c.icon} ${c.name}</button>`).join('')}
-function selectCategory(id){activeCategory=id;renderTabs();renderWords();document.getElementById('search').value=''}
-function renderWords(){const c=categories.find(x=>x.id===activeCategory);document.getElementById('categoryTitle').textContent=c.icon+' '+c.name;document.getElementById('categoryDescription').textContent=c.desc;const q=document.getElementById('search').value.trim().toLowerCase();const words=c.words.filter(w=>w[0].toLowerCase().includes(q)||w[1].toLowerCase().includes(q));document.getElementById('wordGrid').innerHTML=words.map((w,i)=>`<article class="word-card"><div class="word-emoji" style="--tile:${palette[i%palette.length]}">${w[2]}</div><div class="word-ar">${w[0]}</div><div class="word-en">${w[1]}</div><div class="word-actions"><button class="small-sound" onclick="speak(${JSON.stringify(w[0])},'ar')" aria-label="استمع إلى ${w[0]}">🔊 عربي</button><button class="small-sound" onclick="speak(${JSON.stringify(w[1])},'en')" aria-label="Listen to ${w[1]}">🇬🇧 English</button></div></article>`).join('');document.getElementById('empty').style.display=words.length?'none':'block'}
-function allWords(){return categories.flatMap(c=>c.words.map(w=>({ar:w[0],en:w[1],emoji:w[2],category:c.name})))}
-function renderPracticeOptions(){document.getElementById('practiceWord').innerHTML=allWords().map((w,i)=>`<option value="${i}">${w.emoji} ${w.ar} — ${w.en}</option>`).join('');setPracticeWord(0)}
-function setPracticeWord(i){activePractice=allWords()[Number(i)]||allWords()[0];document.getElementById('targetEmoji').textContent=activePractice.emoji;document.getElementById('targetArabic').textContent=activePractice.ar;document.getElementById('targetEnglish').textContent=activePractice.en;document.getElementById('feedback').textContent='اسمع الكلمة أولًا، وبعدين جرّب! 🌟'}
-function speak(text,lang){if(!('speechSynthesis'in window)){alert('المتصفح لا يدعم تشغيل الصوت. جرّبي متصفحًا أحدث.');return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=lang==='ar'?'ar-SA':'en-US';u.rate=.82;window.speechSynthesis.speak(u)}
-function speakCurrent(){speak(activePractice.en,'en')}
-function startRecognition(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){document.getElementById('feedback').textContent='المتصفح الحالي لا يدعم التعرّف على الصوت. جرّبي Chrome إذا كان جهازك يدعم الميزة.';return}const rec=new SR();rec.lang='en-US';rec.interimResults=false;rec.maxAlternatives=3;const btn=document.getElementById('listenBtn');btn.disabled=true;btn.textContent='🎧 بسمعك...';document.getElementById('feedback').textContent='احكي الكلمة بالإنجليزي بوضوح 💜';rec.onresult=e=>{const said=e.results[0][0].transcript.toLowerCase().replace(/[.!?,]/g,'').trim();const target=activePractice.en.toLowerCase().replace(/[.!?,]/g,'').trim();const f=document.getElementById('feedback');if(said===target){f.textContent='رائع! نطقك واضح حسب ما تعرّف عليه المتصفح! ⭐👏'}else{f.textContent='سمعت: «'+said+'». ممتاز إنك جرّبت! اسمع الكلمة مرة ثانية وحاول من جديد 💪'}};rec.onerror=e=>{document.getElementById('feedback').textContent=e.error==='not-allowed'?'اسمح للمتصفح باستخدام الميكروفون من إعدادات الموقع.':'ما قدرت أسمعك هالمرة. تأكد من الميكروفون والإنترنت وجرّب مرة ثانية.'};rec.onend=()=>{btn.disabled=false;btn.textContent='🎤 جرّب نطقي'};try{rec.start()}catch(e){btn.disabled=false;btn.textContent='🎤 جرّب نطقي';document.getElementById('feedback').textContent='انتظر لحظة ثم جرّب مرة ثانية.'}}
-document.getElementById('search').addEventListener('input',renderWords);document.getElementById('practiceWord').addEventListener('change',e=>setPracticeWord(e.target.value));renderTabs();renderWords();renderPracticeOptions();
+  // 1️⃣ دالة نطق الكلمات (حل مشكلة عدم سماع الصوت)
+  function speak(text, lang = 'ar-SA') {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel(); // إيقاف أي صوت سابق
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = 0.8; // بطيء ومناسب للأطفال
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("المتصفح لا يدعم ميزة نطق الكلمات.");
+    }
+  }
+
+  // 2️⃣ دالة التعرف على الصوت والتحقق (حل مشكلة زر اسمعني)
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (SpeechRecognition) {
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+
+    const listenBtn = document.getElementById('listenBtn');
+    const feedbackBox = document.getElementById('feedback');
+
+    listenBtn.addEventListener('click', () => {
+      feedbackBox.innerHTML = "نَبْرة بتسمعلك... احكي الكلمة الحين! 🎤";
+      recognition.start();
+    });
+
+    recognition.onresult = (event) => {
+      const spokenText = event.results[0][0].transcript.toLowerCase().trim();
+      const selectedWord = document.getElementById('wordSelect').value.toLowerCase().trim();
+
+      if (spokenText === selectedWord || spokenText.includes(selectedWord)) {
+        feedbackBox.innerHTML = `🎉 <strong>ممتاز جداً! أحسنت يا بطل!</strong><br>نطقك صحيح: <span>${spokenText}</span> ⭐`;
+        speak("Great job! Excellent!", "en-US"); // تشجيع صوتي
+      } else {
+        feedbackBox.innerHTML = `😊 <strong>محاولة حلوة!</strong><br>أنت قلت: <span>${spokenText}</span> .. جرّب مرة ثانية! 💫`;
+      }
+    };
+
+    recognition.onerror = () => {
+      feedbackBox.innerText = "ما قدرنا نسمعك كويس، تأكد من الميكروفون وجرّب ثاني! 🎙️";
+    };
+  } else {
+    document.getElementById('feedback').innerText = "متصفحك لا يدعم ميزة التعرف الصوتي، يُفضل استخدام Google Chrome.";
+  }
 </script>
-</body></html>
+
+</body>
+</html>
