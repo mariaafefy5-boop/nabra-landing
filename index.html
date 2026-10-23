@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -5,36 +6,238 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>نَبْرة - منصة تعليمية للأطفال</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background-color: #fdfbf7; color: #333; line-height: 1.6; }
-    header { background: #fff; padding: 1rem 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
-    .logo { font-size: 1.8rem; font-weight: bold; color: #ff6b6b; text-decoration: none; }
-    nav a { margin: 0 10px; text-decoration: none; color: #555; font-weight: 600; }
-    .btn-start { background: #ff6b6b; color: white; padding: 0.5rem 1.2rem; border-radius: 20px; text-decoration: none; font-weight: bold; }
-    
-    section { padding: 3rem 1rem; max-width: 1100px; margin: 0 auto; text-align: center; }
-    .hero { background: #fff5eb; border-radius: 20px; padding: 3rem 2rem; margin-top: 1rem; }
-    .hero h1 { font-size: 2.5rem; color: #2d3436; margin-bottom: 1rem; }
-    .hero h1 span { color: #ff6b6b; }
-    
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .card { background: white; border-radius: 15px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 2px solid #f0f0f0; }
-    .card .icon { font-size: 3.5rem; margin-bottom: 0.5rem; }
-    .card h3 { font-size: 1.3rem; margin-bottom: 0.2rem; color: #2d3436; }
-    .card p { font-weight: bold; color: #6c5ce7; margin-bottom: 1rem; }
-    .audio-btns { display: flex; justify-content: center; gap: 10px; }
-    .btn-audio { padding: 0.4rem 0.8rem; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.2s; }
-    .btn-ar { background: #ffeaa7; color: #d63031; }
-    .btn-en { background: #74b9ff; color: #0984e3; }
-    .btn-audio:hover { opacity: 0.9; transform: scale(1.05); }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
 
-    .practice-box { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 500px; margin: 2rem auto; }
-    select { width: 100%; padding: 0.8rem; margin: 1rem 0; border-radius: 10px; border: 2px solid #dfe6e9; font-size: 1rem; }
-    .btn-listen { background: #00b894; color: white; border: none; padding: 0.8rem 2rem; border-radius: 30px; font-size: 1.2rem; cursor: pointer; font-weight: bold; }
-    .feedback-box { margin-top: 1.5rem; padding: 1rem; border-radius: 10px; background: #f8f9fa; font-size: 1.1rem; min-height: 60px; }
+    body {
+      background: #fdfbf7;
+      color: #333;
+      line-height: 1.7;
+    }
 
-    footer { background: #2d3436; color: white; text-align: center; padding: 1.5rem; margin-top: 3rem; }
+    header {
+      background: white;
+      padding: 1rem;
+      box-shadow: 0 2px 10px #0000000d;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ff6b6b;
+      text-decoration: none;
+    }
+
+    nav a {
+      margin: 0 6px;
+      text-decoration: none;
+      color: #555;
+      font-weight: 600;
+    }
+
+    .btn-start {
+      background: #ff6b6b;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .hero {
+      background: #fff5eb;
+      border-radius: 20px;
+      padding: 3rem 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.7rem, 5vw, 2.5rem);
+      color: #2d3436;
+      margin: 1rem 0;
+    }
+
+    .hero h1 span {
+      color: #ff6b6b;
+    }
+
+    .worlds {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 22px 0;
+    }
+
+    .world-btn {
+      background: white;
+      border: 2px solid #ffe0d6;
+      border-radius: 22px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .world-btn.active {
+      background: #ff6b6b;
+      color: white;
+      border-color: #ff6b6b;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.3rem;
+      box-shadow: 0 4px 15px #0000000b;
+      border: 2px solid #f0f0f0;
+    }
+
+    .card .icon {
+      font-size: 3rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      color: #2d3436;
+    }
+
+    .card p {
+      color: #6c5ce7;
+      font-weight: bold;
+      margin-bottom: 12px;
+      direction: ltr;
+    }
+
+    .audio-btns {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-audio {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn-ar {
+      background: #ffeaa7;
+      color: #a52828;
+    }
+
+    .btn-en {
+      background: #d6eaff;
+      color: #075a9c;
+    }
+
+    button:focus-visible,
+    select:focus-visible {
+      outline: 3px solid #6c5ce7;
+      outline-offset: 3px;
+    }
+
+    .practice-box {
+      background: white;
+      padding: 2rem 1rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px #00000012;
+      max-width: 550px;
+      margin: 2rem auto;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      margin: 1rem 0;
+      border-radius: 10px;
+      border: 2px solid #dfe6e9;
+      font-size: 1rem;
+      background: white;
+    }
+
+    .btn-listen {
+      background: #00a884;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 6px;
+    }
+
+    .btn-listen:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
+    .feedback-box {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #f8f9fa;
+      min-height: 65px;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      background: #2d3436;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .nav-container {
+        justify-content: center;
+      }
+
+      nav {
+        width: 100%;
+        text-align: center;
+      }
+
+      section {
+        padding: 2rem .8rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -54,128 +257,561 @@
   <section class="hero" id="home">
     <span>🌟 رحلة صغيرة… وكلمات كبيرة!</span>
     <h1>نتعلّمها، <span>نسمعها،</span> ونحكيها مع نَبْرة!</h1>
-    <p>منصة ممتعة للأطفال المبتدئين ليتعلّموا كلمات جديدة بالعربي والإنجليزي ويتدرّبوا على نطقها خطوة خطوة.</p>
+    <p>
+      اكتشف عوالم ممتعة وتعلّم كلمات جديدة بالعربي والإنجليزي،
+      واستمع إلى نطقها ثم تدرّب عليها مع نَبْرة.
+    </p>
   </section>
 
   <section id="learn">
-    <h2>🐾 عالم الكلمات والتعلم</h2>
-    <p>اضغط على الصوت للتعلم بالعربي أو الإنجليزي</p>
-    
-    <div class="cards-grid">
-      <div class="card">
-        <div class="icon">🐱</div>
-        <h3>قطة</h3>
-        <p>Cat</p>
-        <div class="audio-btns">
-          <button class="btn-audio btn-ar" onclick="speak('قطة', 'ar-SA')">🔊 عربي</button>
-          <button class="btn-audio btn-en" onclick="speak('Cat', 'en-US')">🔊 English</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="icon">🐶</div>
-        <h3>كلب</h3>
-        <p>Dog</p>
-        <div class="audio-btns">
-          <button class="btn-audio btn-ar" onclick="speak('كلب', 'ar-SA')">🔊 عربي</button>
-          <button class="btn-audio btn-en" onclick="speak('Dog', 'en-US')">🔊 English</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="icon">🍎</div>
-        <h3>تفاحة</h3>
-        <p>Apple</p>
-        <div class="audio-btns">
-          <button class="btn-audio btn-ar" onclick="speak('تفاحة', 'ar-SA')">🔊 عربي</button>
-          <button class="btn-audio btn-en" onclick="speak('Apple', 'en-US')">🔊 English</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="icon">🔴</div>
-        <h3>أحمر</h3>
-        <p>Red</p>
-        <div class="audio-btns">
-          <button class="btn-audio btn-ar" onclick="speak('أحمر', 'ar-SA')">🔊 عربي</button>
-          <button class="btn-audio btn-en" onclick="speak('Red', 'en-US')">🔊 English</button>
-        </div>
-      </div>
-    </div>
+    <h2>🌈 عوالم نَبْرة التعليمية</h2>
+    <p>اختَر عالمًا، ثم اضغط على زر الصوت لتسمع الكلمة.</p>
+    <div class="worlds" id="worldButtons"></div>
+    <p id="worldCount" aria-live="polite"></p>
+    <div class="cards-grid" id="cardsGrid"></div>
   </section>
 
   <section id="practice">
-    <h2>🤖 مساعد نَبْرة الصوتي (دورك تحكي!)</h2>
-    <p>اختار الكلمة، اضغط على اسمعني، وقول الكلمة بالإنجليزي!</p>
+    <h2>🤖 مساعد نَبْرة الصوتي</h2>
+    <p>اختَر كلمة، استمع إلى نطقها، ثم قلها بالإنجليزية.</p>
 
     <div class="practice-box">
-      <select id="wordSelect">
-        <option value="cat">Cat (قطة)</option>
-        <option value="dog">Dog (كلب)</option>
-        <option value="apple">Apple (تفاحة)</option>
-        <option value="red">Red (أحمر)</option>
-      </select>
+      <label for="wordSelect">اختَر كلمة للتدرب عليها:</label>
+      <select id="wordSelect"></select>
+      <p id="selectedWord" aria-live="polite"></p>
 
-      <button class="btn-listen" id="listenBtn">🎤 اسمعني</button>
+      <button class="btn-audio btn-en" id="hearWord">
+        🔊 اسمع النطق
+      </button>
 
-      <div class="feedback-box" id="feedback">
-        جاهز؟ اختار الكلمة واضغط اسمعني سوا! 🌟
+      <button class="btn-listen" id="listenBtn">
+        🎤 اسمعني
+      </button>
+
+      <div class="feedback-box" id="feedback" aria-live="polite">
+        جاهز؟ اختَر كلمة وابدأ رحلتك! 🌟
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <p>نَبْرة 🔊 — نتعلّمها، نسمعها، ونحكيها! • نموذج تجريبي تعليمي للأطفال</p>
+  <p>نَبْرة 🔊 — نتعلّمها، نسمعها، ونحكيها!</p>
+  <p>منصة تعليمية للأطفال</p>
 </footer>
 
 <script>
-  // 1️⃣ دالة نطق الكلمات (حل مشكلة عدم سماع الصوت)
-  function speak(text, lang = 'ar-SA') {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel(); // إيقاف أي صوت سابق
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = lang;
-      utterance.rate = 0.8; // بطيء ومناسب للأطفال
-      window.speechSynthesis.speak(utterance);
-    } else {
-      alert("المتصفح لا يدعم ميزة نطق الكلمات.");
-    }
+const worlds = [
+  {
+    id: "animals",
+    name: "عالم الحيوانات",
+    icon: "🐾",
+    words: [
+      ["🐱","قطة","Cat"],
+      ["🐶","كلب","Dog"],
+      ["🐰","أرنب","Rabbit"],
+      ["🦁","أسد","Lion"],
+      ["🐘","فيل","Elephant"],
+      ["🐒","قرد","Monkey"],
+      ["🐴","حصان","Horse"],
+      ["🐄","بقرة","Cow"],
+      ["🐑","خروف","Sheep"],
+      ["🐐","ماعز","Goat"],
+      ["🐪","جمل","Camel"],
+      ["🦒","زرافة","Giraffe"],
+      ["🐻","دب","Bear"],
+      ["🐼","باندا","Panda"],
+      ["🐔","دجاجة","Hen"],
+      ["🦆","بطة","Duck"],
+      ["🐢","سلحفاة","Turtle"],
+      ["🐟","سمكة","Fish"],
+      ["🦋","فراشة","Butterfly"],
+      ["🐝","نحلة","Bee"],
+      ["🐍","ثعبان","Snake"],
+      ["🐸","ضفدع","Frog"],
+      ["🦓","حمار وحشي","Zebra"],
+      ["🦊","ثعلب","Fox"]
+    ]
+  },
+  {
+    id: "colors",
+    name: "عالم الألوان",
+    icon: "🎨",
+    words: [
+      ["🔴","أحمر","Red"],
+      ["🔵","أزرق","Blue"],
+      ["🟡","أصفر","Yellow"],
+      ["🟢","أخضر","Green"],
+      ["⚫","أسود","Black"],
+      ["⚪","أبيض","White"],
+      ["🟠","برتقالي","Orange"],
+      ["🟣","بنفسجي","Purple"],
+      ["🩷","وردي","Pink"],
+      ["🟤","بني","Brown"],
+      ["🩶","رمادي","Gray"],
+      ["🩵","سماوي","Light blue"]
+    ]
+  },
+  {
+    id: "body",
+    name: "عالم أعضاء الجسم",
+    icon: "🧒",
+    words: [
+      ["👁️","عين","Eye"],
+      ["👂","أذن","Ear"],
+      ["👃","أنف","Nose"],
+      ["👄","فم","Mouth"],
+      ["🦷","سن","Tooth"],
+      ["💇","شعر","Hair"],
+      ["🙂","وجه","Face"],
+      ["🖐️","يد","Hand"],
+      ["💪","ذراع","Arm"],
+      ["🦵","ساق","Leg"],
+      ["🦶","قدم","Foot"],
+      ["☝️","إصبع","Finger"],
+      ["🦴","عظم","Bone"],
+      ["❤️","قلب","Heart"],
+      ["🦻","أذن","Ear"],
+      ["👅","لسان","Tongue"]
+    ]
+  },
+  {
+    id: "letters",
+    name: "عالم الحروف",
+    icon: "🔤",
+    words: [
+      ["🍎","حرف أ","Letter Alif"],
+      ["🚪","حرف ب","Letter Baa"],
+      ["🐪","حرف ج","Letter Jeem"],
+      ["🐻","حرف د","Letter Dal"],
+      ["🌳","حرف ش","Letter Sheen"],
+      ["🐟","حرف س","Letter Seen"],
+      ["🌙","حرف ق","Letter Qaf"],
+      ["🌷","حرف و","Letter Waw"],
+      ["⭐","حرف ن","Letter Noon"],
+      ["🐘","حرف ف","Letter Faa"],
+      ["🦆","حرف ب","Letter Baa"],
+      ["🍇","حرف ع","Letter Ain"],
+      ["🌞","حرف ت","Letter Taa"],
+      ["🧸","حرف ل","Letter Lam"],
+      ["🕊️","حرف ط","Letter Taa"]
+    ]
+  },
+  {
+    id: "family",
+    name: "عالم العائلة",
+    icon: "👨‍👩‍👧‍👦",
+    words: [
+      ["👨","أب","Father"],
+      ["👩","أم","Mother"],
+      ["👦","أخ","Brother"],
+      ["👧","أخت","Sister"],
+      ["👴","جد","Grandfather"],
+      ["👵","جدة","Grandmother"],
+      ["👶","طفل","Baby"],
+      ["👨‍👩‍👧","عائلة","Family"],
+      ["👨‍👧","ابن","Son"],
+      ["👩‍👧","ابنة","Daughter"],
+      ["🤝","صديق","Friend"],
+      ["👨‍👩‍👦","والدان","Parents"]
+    ]
+  },
+  {
+    id: "numbers",
+    name: "عالم الأرقام",
+    icon: "🔢",
+    words: [
+      ["1️⃣","واحد","One"],
+      ["2️⃣","اثنان","Two"],
+      ["3️⃣","ثلاثة","Three"],
+      ["4️⃣","أربعة","Four"],
+      ["5️⃣","خمسة","Five"],
+      ["6️⃣","ستة","Six"],
+      ["7️⃣","سبعة","Seven"],
+      ["8️⃣","ثمانية","Eight"],
+      ["9️⃣","تسعة","Nine"],
+      ["🔟","عشرة","Ten"],
+      ["💯","مئة","One hundred"]
+    ]
+  },
+  {
+    id: "food",
+    name: "عالم الطعام",
+    icon: "🍎",
+    words: [
+      ["🍎","تفاحة","Apple"],
+      ["🍌","موز","Banana"],
+      ["🍊","برتقال","Orange"],
+      ["🍇","عنب","Grapes"],
+      ["🍉","بطيخ","Watermelon"],
+      ["🍓","فراولة","Strawberry"],
+      ["🥛","حليب","Milk"],
+      ["🍞","خبز","Bread"],
+      ["🥚","بيضة","Egg"],
+      ["🧀","جبنة","Cheese"],
+      ["🍚","أرز","Rice"],
+      ["🍯","عسل","Honey"],
+      ["🍕","بيتزا","Pizza"],
+      ["🥕","جزر","Carrot"],
+      ["🥒","خيار","Cucumber"],
+      ["🍰","كعكة","Cake"],
+      ["🥔","بطاطا","Potato"],
+      ["🍋","ليمون","Lemon"],
+      ["🍍","أناناس","Pineapple"],
+      ["🥚","بيض","Eggs"]
+    ]
+  },
+  {
+    id: "objects",
+    name: "عالم الأشياء",
+    icon: "🎒",
+    words: [
+      ["📚","كتاب","Book"],
+      ["✏️","قلم رصاص","Pencil"],
+      ["🖊️","قلم","Pen"],
+      ["🎒","حقيبة","Bag"],
+      ["🪑","كرسي","Chair"],
+      ["🪟","نافذة","Window"],
+      ["🚪","باب","Door"],
+      ["🛏️","سرير","Bed"],
+      ["🕰️","ساعة","Clock"],
+      ["📱","هاتف","Phone"],
+      ["⚽","كرة","Ball"],
+      ["🔑","مفتاح","Key"],
+      ["💡","مصباح","Lamp"],
+      ["🚗","سيارة","Car"],
+      ["🚌","حافلة","Bus"],
+      ["🧸","لعبة","Toy"],
+      ["🪥","فرشاة أسنان","Toothbrush"],
+      ["🥄","ملعقة","Spoon"],
+      ["🍽️","طبق","Plate"]
+    ]
+  },
+  {
+    id: "feelings",
+    name: "عالم المشاعر",
+    icon: "😊",
+    words: [
+      ["😀","سعيد","Happy"],
+      ["😢","حزين","Sad"],
+      ["😡","غاضب","Angry"],
+      ["😴","نعسان","Sleepy"],
+      ["😨","خائف","Scared"],
+      ["😮","متفاجئ","Surprised"],
+      ["🥰","محبوب","Loved"],
+      ["😌","هادئ","Calm"],
+      ["🤩","متحمس","Excited"],
+      ["😕","مرتبك","Confused"],
+      ["😊","لطيف","Kind"],
+      ["💪","شجاع","Brave"]
+    ]
+  },
+  {
+    id: "nature",
+    name: "عالم الطبيعة",
+    icon: "🌳",
+    words: [
+      ["☀️","شمس","Sun"],
+      ["🌙","قمر","Moon"],
+      ["⭐","نجمة","Star"],
+      ["🌳","شجرة","Tree"],
+      ["🌸","زهرة","Flower"],
+      ["🌊","بحر","Sea"],
+      ["⛰️","جبل","Mountain"],
+      ["🌧️","مطر","Rain"],
+      ["☁️","سحابة","Cloud"],
+      ["💨","ريح","Wind"],
+      ["🔥","نار","Fire"],
+      ["🌍","أرض","Earth"],
+      ["🌈","قوس قزح","Rainbow"],
+      ["🌱","نبتة","Plant"],
+      ["🌵","صبار","Cactus"],
+      ["🏝️","جزيرة","Island"]
+    ]
+  },
+  {
+    id: "actions",
+    name: "عالم الأفعال",
+    icon: "🏃",
+    words: [
+      ["🏃","يركض","Run"],
+      ["🚶","يمشي","Walk"],
+      ["🍽️","يأكل","Eat"],
+      ["🥤","يشرب","Drink"],
+      ["😴","ينام","Sleep"],
+      ["📖","يقرأ","Read"],
+      ["✍️","يكتب","Write"],
+      ["🎨","يرسم","Draw"],
+      ["🎵","يغني","Sing"],
+      ["💃","يرقص","Dance"],
+      ["🗣️","يتكلم","Speak"],
+      ["👂","يستمع","Listen"],
+      ["👏","يصفق","Clap"],
+      ["🦘","يقفز","Jump"],
+      ["😊","يبتسم","Smile"],
+      ["🧹","ينظف","Clean"],
+      ["🧑‍🍳","يطبخ","Cook"],
+      ["🧼","يغسل","Wash"]
+    ]
+  },
+  {
+    id: "greetings",
+    name: "عالم التحيات",
+    icon: "👋",
+    words: [
+      ["👋","مرحبًا","Hello"],
+      ["🌅","صباح الخير","Good morning"],
+      ["🌙","مساء الخير","Good evening"],
+      ["👋","إلى اللقاء","Goodbye"],
+      ["🙏","من فضلك","Please"],
+      ["💛","شكرًا","Thank you"],
+      ["😊","عفوًا","You're welcome"],
+      ["🤝","كيف حالك؟","How are you?"],
+      ["😄","أنا بخير","I am fine"],
+      ["🌙","تصبح على خير","Good night"],
+      ["🎉","أحسنت","Well done"],
+      ["❤️","أحبك","I love you"]
+    ]
+  }
+];
+
+const worldButtons = document.getElementById("worldButtons");
+const cardsGrid = document.getElementById("cardsGrid");
+const worldCount = document.getElementById("worldCount");
+const wordSelect = document.getElementById("wordSelect");
+const selectedWord = document.getElementById("selectedWord");
+const feedback = document.getElementById("feedback");
+const listenBtn = document.getElementById("listenBtn");
+const hearWord = document.getElementById("hearWord");
+
+let currentWorld = worlds[0].id;
+let recognition = null;
+let isListening = false;
+let practiceWords = [];
+
+worlds.forEach(world => {
+  world.words.forEach((word, index) => {
+    practiceWords.push({
+      id: world.id + "-" + index,
+      world: world.name,
+      icon: word[0],
+      ar: word[1],
+      en: word[2]
+    });
+  });
+});
+
+function speak(text, lang = "ar-SA") {
+  if (!("speechSynthesis" in window)) {
+    feedback.textContent = "المتصفح لا يدعم نطق الكلمات صوتيًا.";
+    return;
   }
 
-  // 2️⃣ دالة التعرف على الصوت والتحقق (حل مشكلة زر اسمعني)
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  window.speechSynthesis.cancel();
 
-  if (SpeechRecognition) {
-    const recognition = new SpeechRecognition();
-    recognition.lang = 'en-US';
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang;
+  utterance.rate = 0.8;
+  utterance.pitch = 1.05;
 
-    const listenBtn = document.getElementById('listenBtn');
-    const feedbackBox = document.getElementById('feedback');
+  window.speechSynthesis.speak(utterance);
+}
 
-    listenBtn.addEventListener('click', () => {
-      feedbackBox.innerHTML = "نَبْرة بتسمعلك... احكي الكلمة الحين! 🎤";
-      recognition.start();
+function renderWorldButtons() {
+  worldButtons.innerHTML = "";
+
+  worlds.forEach(world => {
+    const button = document.createElement("button");
+    button.className =
+      "world-btn" + (world.id === currentWorld ? " active" : "");
+    button.textContent = world.icon + " " + world.name;
+    button.setAttribute(
+      "aria-pressed",
+      String(world.id === currentWorld)
+    );
+
+    button.addEventListener("click", () => {
+      currentWorld = world.id;
+      renderWorldButtons();
+      renderCards();
     });
 
-    recognition.onresult = (event) => {
-      const spokenText = event.results[0][0].transcript.toLowerCase().trim();
-      const selectedWord = document.getElementById('wordSelect').value.toLowerCase().trim();
+    worldButtons.appendChild(button);
+  });
+}
 
-      if (spokenText === selectedWord || spokenText.includes(selectedWord)) {
-        feedbackBox.innerHTML = `🎉 <strong>ممتاز جداً! أحسنت يا بطل!</strong><br>نطقك صحيح: <span>${spokenText}</span> ⭐`;
-        speak("Great job! Excellent!", "en-US"); // تشجيع صوتي
-      } else {
-        feedbackBox.innerHTML = `😊 <strong>محاولة حلوة!</strong><br>أنت قلت: <span>${spokenText}</span> .. جرّب مرة ثانية! 💫`;
-      }
+function renderCards() {
+  const world = worlds.find(item => item.id === currentWorld);
+  if (!world) return;
+
+  cardsGrid.innerHTML = "";
+  worldCount.textContent =
+    world.name + " — " + world.words.length + " كلمة";
+
+  world.words.forEach(word => {
+    const card = document.createElement("article");
+    card.className = "card";
+
+    const icon = document.createElement("div");
+    icon.className = "icon";
+    icon.textContent = word[0];
+
+    const arabic = document.createElement("h3");
+    arabic.textContent = word[1];
+
+    const english = document.createElement("p");
+    english.textContent = word[2];
+
+    const buttons = document.createElement("div");
+    buttons.className = "audio-btns";
+
+    const arButton = document.createElement("button");
+    arButton.className = "btn-audio btn-ar";
+    arButton.textContent = "🔊 عربي";
+    arButton.addEventListener("click", () => speak(word[1], "ar-SA"));
+
+    const enButton = document.createElement("button");
+    enButton.className = "btn-audio btn-en";
+    enButton.textContent = "🔊 English";
+    enButton.addEventListener("click", () => speak(word[2], "en-US"));
+
+    buttons.append(arButton, enButton);
+    card.append(icon, arabic, english, buttons);
+    cardsGrid.appendChild(card);
+  });
+}
+
+function renderPracticeOptions() {
+  wordSelect.innerHTML = "";
+
+  worlds.forEach(world => {
+    const group = document.createElement("optgroup");
+    group.label = world.name;
+
+    world.words.forEach((word, index) => {
+      const option = document.createElement("option");
+      option.value = world.id + "-" + index;
+      option.textContent = word[2] + " (" + word[1] + ")";
+      group.appendChild(option);
+    });
+
+    wordSelect.appendChild(group);
+  });
+
+  updateSelectedWord();
+}
+
+function getSelectedWord() {
+  return practiceWords.find(word => word.id === wordSelect.value);
+}
+
+function updateSelectedWord() {
+  const word = getSelectedWord();
+  if (!word) return;
+  selectedWord.textContent = word.icon + " " + word.ar + " — " + word.en;
+}
+
+wordSelect.addEventListener("change", () => {
+  updateSelectedWord();
+  feedback.textContent = "اضغط اسمع النطق ثم جرّب قول الكلمة! 🌟";
+});
+
+hearWord.addEventListener("click", () => {
+  const word = getSelectedWord();
+  if (word) speak(word.en, "en-US");
+});
+
+const SpeechRecognitionAPI =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (SpeechRecognitionAPI) {
+  recognition = new SpeechRecognitionAPI();
+  recognition.lang = "en-US";
+  recognition.continuous = false;
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 3;
+
+  listenBtn.addEventListener("click", () => {
+    if (isListening) return;
+
+    if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+
+    feedback.textContent = "نَبْرة بتسمعلك... احكي الكلمة بالإنجليزية! 🎤";
+    listenBtn.disabled = true;
+
+    try {
+      recognition.start();
+    } catch (error) {
+      listenBtn.disabled = false;
+      feedback.textContent =
+        "تعذّر بدء التسجيل. انتظر قليلًا ثم حاول مرة أخرى.";
+    }
+  });
+
+  recognition.onstart = () => {
+    isListening = true;
+    feedback.textContent = "الميكروفون يعمل، احكي الكلمة الآن! 🎤";
+  };
+
+  recognition.onresult = event => {
+    const alternatives = Array.from(event.results[0])
+      .map(result => result.transcript.toLowerCase().trim());
+
+    const word = getSelectedWord();
+    if (!word) return;
+
+    const normalize = text =>
+      text.toLowerCase()
+        .replace(/[.,!?;:'"]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    const target = normalize(word.en);
+    const matched = alternatives.some(text => normalize(text) === target);
+
+    if (matched) {
+      feedback.textContent =
+        "🎉 ممتاز جدًا يا بطل! نطقك صحيح: " +
+        word.en + " ⭐ أحسنت!";
+      speak("Great job! Excellent!", "en-US");
+    } else {
+      feedback.textContent =
+        "💛 محاولة حلوة! سمعنا: " + alternatives[0] +
+        ". الكلمة المطلوبة: " + word.en +
+        ". اسمع النطق وحاول مرة ثانية!";
+    }
+  };
+
+  recognition.onerror = event => {
+    const messages = {
+      "not-allowed": "يرجى السماح باستخدام الميكروفون من إعدادات المتصفح.",
+      "audio-capture": "لم يتم العثور على ميكروفون متاح.",
+      "no-speech": "لم نسمع صوتًا. حاول التحدث بوضوح.",
+      "network": "حدثت مشكلة في الاتصال أثناء التعرف على الصوت.",
+      "aborted": "تم إيقاف التسجيل. يمكنك المحاولة مرة أخرى."
     };
 
-    recognition.onerror = () => {
-      feedbackBox.innerText = "ما قدرنا نسمعك كويس، تأكد من الميكروفون وجرّب ثاني! 🎙️";
-    };
-  } else {
-    document.getElementById('feedback').innerText = "متصفحك لا يدعم ميزة التعرف الصوتي، يُفضل استخدام Google Chrome.";
-  }
+    feedback.textContent =
+      messages[event.error] ||
+      "تعذّر التعرف على الصوت. تأكد من الميكروفون وحاول مرة أخرى.";
+  };
+
+  recognition.onend = () => {
+    isListening = false;
+    listenBtn.disabled = false;
+  };
+} else {
+  listenBtn.addEventListener("click", () => {
+    feedback.textContent =
+      "التعرف على الصوت غير مدعوم في هذا المتصفح. جرّب Google Chrome.";
+  });
+}
+
+renderWorldButtons();
+renderCards();
+renderPracticeOptions();
 </script>
 
 </body>
